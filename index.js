@@ -22,15 +22,6 @@ app.use("/users", userRoutes);
 /* -------------------------------------------------------------------------- */
 // serving the frontend
 
-app.use(express.static(path.dirname("../client/build/")));
-
-app.get("*", (_, res) => {
-  res.sendFile(path.resolve("../client/build/index.html")),
-    (err) => {
-      res.status(500).send(err);
-    };
-});
-
 
 /* -------------------------------------------------------------------------- */
 const PORT = process.env.PORT || 8080;
