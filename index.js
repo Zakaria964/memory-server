@@ -14,7 +14,12 @@ app.use(express.json());
 // app.use(express.json());
 app.use(bodyParser.json({ limit: "30mb", extended: true }));
 app.use(bodyParser.urlencoded({ limit: "30mp", extended: true }));
-app.use(cors());
+// app.use(cors());
+app.use(
+  cors({
+    origin: ["http://localhost:3000", "https://memory-app-pnxn.onrender.com"],
+  })
+);
 
 app.use("/posts", postRoutes);
 app.use("/users", userRoutes);
