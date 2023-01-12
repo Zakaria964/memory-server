@@ -15,19 +15,18 @@ app.use(express.json());
 app.use(bodyParser.json({ limit: "30mb", extended: true }));
 app.use(bodyParser.urlencoded({ limit: "30mp", extended: true }));
 app.use(cors());
-// const cors=require("cors");
-// const corsOptions ={
-//    origin:'*', 
-//    credentials:true,            //access-control-allow-credentials:true
-//    optionSuccessStatus:200,
-// }
+const corsOptions ={
+   origin:'*', 
+   credentials:true,            //access-control-allow-credentials:true
+   optionSuccessStatus:200,
+}
 
-// app.use(cors(corsOptions)) // Use this after the variable declaration
-// app.use(
-//   cors({
-//     origin: ["http://localhost:3000", "https://memory-app-83ci.onrender.com/"],
-//   })
-// );
+app.use(cors(corsOptions)) // Use this after the variable declaration
+app.use(
+  cors({
+    origin: ["http://localhost:3000", "https://luxury-toffee-c013f7.netlify.app/"],
+  })
+);
 
 app.use("/posts", postRoutes);
 app.use("/users", userRoutes);
